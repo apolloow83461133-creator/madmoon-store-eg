@@ -49,7 +49,17 @@ window.StoreEngine = (() => {
   function getConfig() {
     try {
       const saved = JSON.parse(localStorage.getItem(KEYS.CONFIG) || '{}');
-      return { ...window.STORE_DEFAULTS, ...saved };
+      const merged = { ...window.STORE_DEFAULTS, ...saved };
+      if (merged.brandName === 'مَضمون') {
+        merged.brandName = 'مضمون';
+      }
+      if (!merged.orderWebhookUrl && window.STORE_DEFAULTS.orderWebhookUrl) {
+        merged.orderWebhookUrl = window.STORE_DEFAULTS.orderWebhookUrl;
+      }
+      if (!merged.whatsappNumber && window.STORE_DEFAULTS.whatsappNumber) {
+        merged.whatsappNumber = window.STORE_DEFAULTS.whatsappNumber;
+      }
+      return merged;
     } catch {
       return { ...window.STORE_DEFAULTS };
     }
@@ -241,12 +251,11 @@ window.StoreEngine = (() => {
 
     const cfg = getConfig();
 
-    // 1. إرسال الطلب تلقائياً إلى Netlify Forms عند النشر الأونلاين
+    // 1. إرسال الطلب تلقائياً إلى Netlify Forms فقط عند النشر على نطاق netlify.app
     if (
       typeof window !== 'undefined' &&
       window.location &&
-      window.location.hostname !== '127.0.0.1' &&
-      window.location.hostname !== 'localhost' &&
+      window.location.hostname.endsWith('.netlify.app') &&
       window.location.protocol.startsWith('http')
     ) {
       try {

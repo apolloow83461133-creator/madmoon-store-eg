@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تفاصيل المنتج | متجر مضمون</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sticky-cta">
+  <div class="top-banner">
+    <div class="top-banner__items">
+      <span>💵 ادفع عند الاستلام فقط</span>
+      <span class="top-banner__sep">|</span>
+      <span>🚚 شحن 2 — 5 أيام لجميع المحافظات</span>
+      <span class="top-banner__sep">|</span>
+      <span>🛡️ ضمان استبدال 14 يوم</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">✓</div>
+        <div class="brand-text">
+          <span class="brand-name" data-brand-name>مضمون</span>
+          <span class="brand-sub" data-brand-tagline>حلول ذكية لمنزلك وعنايتك اليومية</span>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#products">كل المنتجات</a>
+        <a href="#codFormBox">اطلب الآن</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#" data-whatsapp-link target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">واتساب</a>
+        <button type="button" class="cart-btn" data-open-cart>
+          <span>🛒 السلة</span>
+          <span class="cart-badge" data-cart-count>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="breadcrumbs" aria-label="مسار الصفحة">
+      <a href="index.html">الرئيسية</a>
+      <span>/</span>
+      <span id="crumbCat">القسم</span>
+      <span>/</span>
+      <strong id="crumbName">المنتج</strong>
+    </nav>
+
+    <section class="landing-layout">
+      <!-- Gallery Column -->
+      <div class="gallery-box">
+        <div class="gallery-main">
+          <img id="galleryMainImg" src="" alt="" />
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+        <div style="margin-top:1rem;padding:0.85rem;background:var(--surface-tint);border-radius:12px;font-size:0.86rem;color:var(--primary-dark);font-weight:700;">
+          ✓ الصور مطابقة تماماً للمنتج الذي يصلك في الطرد مع ضمان استبدال 14 يوماً.
+        </div>
+      </div>
+
+      <!-- Details & One-Page COD Form Column -->
+      <div class="landing-details">
+        <span class="product-cat" id="prodCat"></span>
+        <h1 id="prodTitle"></h1>
+        <p style="margin:0 0 0.7rem;color:var(--ink-muted);" id="prodTagline"></p>
+
+        <div class="product-meta">
+          <span class="rating-stars" id="prodRating"></span>
+          <span>متوفر للشحن الفوري</span>
+        </div>
+
+        <div class="price-row">
+          <span class="price-now" id="prodPriceDisplay"></span>
+          <span class="price-old" id="prodCompareDisplay"></span>
+        </div>
+
+        <h3 style="margin:1rem 0 0.45rem;font-size:1rem;">اختر الباقة المناسبة لك:</h3>
+        <div class="bundle-options" id="bundleOptions"></div>
+
+        <ul class="highlights-list" id="prodHighlights"></ul>
+
+        <div style="background:var(--surface-alt);border-radius:12px;padding:0.95rem 1rem;margin-bottom:1rem;">
+          <strong style="display:block;margin-bottom:0.25rem;font-size:0.92rem;">طريقة الاستخدام والعناية:</strong>
+          <p style="margin:0;font-size:0.88rem;color:var(--ink-muted);" id="prodUsage"></p>
+        </div>
+
+        <!-- Direct COD Form -->
+        <div class="cod-box" id="codFormBox">
+          <h2>سجّل بياناتك الآن — والدفع كاش عند الاستلام</h2>
+          <form id="lpCodForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="lpName">الاسم بالكامل *</label>
+                <input id="lpName" name="customerName" type="text" placeholder="الاسم ثلاثي" required />
+                <span class="field-error" data-err="customerName">يرجى إدخال الاسم ثلاثي</span>
+              </div>
+              <div class="form-group">
+                <label for="lpGov">المحافظة *</label>
+                <select id="lpGov" name="governorate"></select>
+              </div>
+              <div class="form-group">
+                <label for="lpPhone1">رقم الموبايل الأساسي *</label>
+                <input id="lpPhone1" name="phone1" type="tel" inputmode="tel" placeholder="01012345678" required />
+                <span class="field-error" data-err="phone1">أدخل رقم موبايل مصري صحيح (11 رقم يبدأ بـ 01)</span>
+              </div>
+              <div class="form-group">
+                <label for="lpPhone2">رقم إضافي (اختياري)</label>
+                <input id="lpPhone2" name="phone2" type="tel" inputmode="tel" placeholder="01112345678" />
+                <span class="field-error" data-err="phone2">الرقم الإضافي غير صحيح</span>
+              </div>
+              <div class="form-group full">
+                <label for="lpAddress">العنوان بالتفصيل *</label>
+                <input id="lpAddress" name="address" type="text" placeholder="المدينة / الحي / الشارع / رقم العمارة والشقة / علامة مميزة" required />
+                <span class="field-error" data-err="address">يرجى كتابة العنوان بالتفصيل</span>
+              </div>
+              <div class="form-group full">
+                <label for="lpNotes">ملاحظات للمندوب (اختياري)</label>
+                <input id="lpNotes" name="notes" type="text" placeholder="أفضل وقت للاتصال أو أي تفاصيل إضافية" />
+              </div>
+            </div>
+
+            <div class="upsell-check-list" id="landingUpsellList"></div>
+
+            <div class="order-summary-card" id="lpSummary"></div>
+
+            <div style="display:grid;gap:0.65rem;">
+              <button type="submit" class="btn btn-accent btn-lg btn-block">تأكيد الطلب الآن (الدفع عند الاستلام)</button>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+                <button type="button" id="lpWaSubmitBtn" class="btn btn-whatsapp btn-block">اطلب عبر واتساب</button>
+                <button type="button" id="lpAddToCartBtn" class="btn btn-outline btn-block">+ أضف للسلة</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">منتجات أخرى قد تهمك</h2>
+          <p class="section-subtitle">أضف أكثر من منتج في نفس الطلب ووفّر مصاريف الشحن</p>
+        </div>
+      </div>
+      <div class="products-grid" id="relatedProductsGrid"></div>
+    </section>
+  </main>
+
+  <div class="sticky-mobile-cta">
+    <div>
+      <div style="font-size:0.75rem;color:var(--ink-light);">السعر المختار</div>
+      <strong style="font-size:1.15rem;color:var(--primary-dark);" id="stickyMobilePrice"></strong>
+    </div>
+    <a href="#codFormBox" class="btn btn-accent">اطلب الآن (كاش عند الاستلام)</a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0;">
+        <span>© 2026 جميع الحقوق محفوظة — <span data-brand-name>مضمون</span></span>
+        <a href="index.html">العودة للصفحة الرئيسية</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/cart-drawer.js"></script>
+  <script src="js/product-page.js"></script>
+</body>
+</html>
